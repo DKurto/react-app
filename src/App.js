@@ -4,8 +4,6 @@ import NewDay from './components/NewDay';
 
 
 export default class App extends Component {
-
-
   render() {
     return (
       <div className="panel panel-primary">

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import Day from './Day';
 import { browserHistory } from 'react-router';
-import { Router, Route } from 'react-router'
-
+import { Router, Route } from 'react-router';
 
 
 var days = [
@@ -44,9 +43,9 @@ var days = [
 
 ];
 
-var clickHandler = () =>
-  {browserHistory.push('/new_day')};
-
+var clickHandler = () => {
+  browserHistory.push('/new_day')
+};
 
 export default class Week extends React.Component {
   render(){

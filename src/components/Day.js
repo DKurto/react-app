@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { browserHistory } from 'react-router';
 import Charges from './Charges';
 
 
@@ -7,15 +8,15 @@ export default class Day extends React.Component {
     var data= this.props.data;
     var daysTemplate = data.map(function(item, index){
       return (
-          <div key={index}>
-            <div className="panel panel-default">
-              <div className="panel-body">
-                {item.date} {item.nameDay} Day
-                <Charges data={item.charges} />
-              </div>
-              <div className="panel-footer">Total: {item.totalDay}$</div>
+        <div key={index}>
+          <div className="panel panel-default">
+            <div className="panel-body">
+              {item.date} {item.nameDay} Day
+              <Charges data={item.charges} />
             </div>
+            <div className="panel-footer">Total: {item.totalDay}$</div>
           </div>
+        </div>
       )
     });
 
