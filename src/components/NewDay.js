@@ -32,7 +32,8 @@ export default class NewDay extends Component {
       charges: [],
       place: '',
       cost: '',
-      type: 'EMP'
+      type: 'EMP',
+      total: 0
     };
 
   }
@@ -50,7 +51,12 @@ export default class NewDay extends Component {
     var itemIndex = parseInt(e.target.value, 10);
 
     this.setState((state) => {
+
+      var charge = state.charges[itemIndex]
+      var total = state.total - charge.cost
       state.charges.splice(itemIndex, 1);
+      this.setState({total: total})
+
       return {charges: state.charges}
     })
   };
@@ -60,7 +66,8 @@ export default class NewDay extends Component {
     e.preventDefault();
     var nextItems = this.state.charges.concat([{place: this.state.place, cost:this.state.cost, type:this.state.type, id: Date.now()}]);
     var nextText = '';
-    this.setState({charges: nextItems, place: nextText, cost: nextText, type: 'EMP'});
+    var total = this.state.total + parseInt(this.state.cost);
+    this.setState({charges: nextItems, place: nextText, cost: nextText, type: 'EMP', total: total});
   };
 
 
@@ -110,7 +117,7 @@ export default class NewDay extends Component {
           </div>
 
         </div>
-        <div className="panel-footer">Total: </div>
+        <div className="panel-footer">Total: {this.state.total}$</div>
       </div>
     )
   }
