@@ -5,13 +5,13 @@ import Charges from './Charges';
 
 export default class Day extends React.Component {
   render(){
-    var data= this.props.data;
-    var daysTemplate = data.map(function(item, index){
+    var data= this.props.data,
+      daysTemplate = data.map(function(item, index){
       return (
         <div key={index}>
           <div className="panel panel-default">
             <div className="panel-body">
-              {item.date} {item.nameDay} Day
+              {item.date} {item.location}
               <Charges data={item.charges} />
             </div>
             <div className="panel-footer">Total: {item.totalDay}$</div>
@@ -21,9 +21,9 @@ export default class Day extends React.Component {
     });
 
     return (
-        <div>
-          {daysTemplate}
-        </div>
+      <div>
+        {daysTemplate}
+      </div>
     )
   }
 };
